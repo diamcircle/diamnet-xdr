@@ -1,6 +1,6 @@
-%#include "xdr/Stellar-types.h"
+%#include "xdr/Diamnet-types.h"
 
-namespace stellar {
+namespace diamnet {
 // General “Soroban execution lane” settings
 struct ConfigSettingContractExecutionLanesV0
 {

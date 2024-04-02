@@ -1,13 +1,13 @@
-// Copyright 2022 Stellar Development Foundation and contributors. Licensed
+// Copyright 2022 Diamnet Development Foundation and contributors. Licensed
 // under the Apache License, Version 2.0. See the COPYING file at the root
 // of this distribution or at http://www.apache.org/licenses/LICENSE-2.0
 
 // This is for 'internal'-only messages that are not meant to be read/written
 // by any other binaries besides a single Core instance.
-%#include "xdr/Stellar-ledger.h"
-%#include "xdr/Stellar-SCP.h"
+%#include "xdr/Diamnet-ledger.h"
+%#include "xdr/Diamnet-SCP.h"
 
-namespace stellar
+namespace diamnet
 {
 union StoredTransactionSet switch (int v)
 {
@@ -21,7 +21,7 @@ struct StoredDebugTransactionSet
 {
 	StoredTransactionSet txSet;
 	uint32 ledgerSeq;
-	StellarValue scpValue;
+	DiamnetValue scpValue;
 };
 
 struct PersistedSCPStateV0

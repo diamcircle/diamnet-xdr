@@ -1,16 +1,16 @@
-// Copyright 2015 Stellar Development Foundation and contributors. Licensed
+// Copyright 2015 Diamnet Development Foundation and contributors. Licensed
 // under the Apache License, Version 2.0. See the COPYING file at the root
 // of this distribution or at http://www.apache.org/licenses/LICENSE-2.0
 
-%#include "xdr/Stellar-SCP.h"
-%#include "xdr/Stellar-transaction.h"
+%#include "xdr/Diamnet-SCP.h"
+%#include "xdr/Diamnet-transaction.h"
 
-namespace stellar
+namespace diamnet
 {
 
 typedef opaque UpgradeType<128>;
 
-enum StellarValueType
+enum DiamnetValueType
 {
     STELLAR_VALUE_BASIC = 0,
     STELLAR_VALUE_SIGNED = 1
@@ -22,9 +22,9 @@ struct LedgerCloseValueSignature
     Signature signature; // nodeID's signature
 };
 
-/* StellarValue is the value used by SCP to reach consensus on a given ledger
+/* DiamnetValue is the value used by SCP to reach consensus on a given ledger
  */
-struct StellarValue
+struct DiamnetValue
 {
     Hash txSetHash;      // transaction set to apply to previous ledger
     TimePoint closeTime; // network close time
@@ -37,7 +37,7 @@ struct StellarValue
     UpgradeType upgrades<6>;
 
     // reserved for future use
-    union switch (StellarValueType v)
+    union switch (DiamnetValueType v)
     {
     case STELLAR_VALUE_BASIC:
         void;
@@ -75,7 +75,7 @@ struct LedgerHeader
 {
     uint32 ledgerVersion;    // the protocol version of the ledger
     Hash previousLedgerHash; // hash of the previous ledger header
-    StellarValue scpValue;   // what consensus agreed to
+    DiamnetValue scpValue;   // what consensus agreed to
     Hash txSetResultHash;    // the TransactionResultSet that led to this ledger
     Hash bucketListHash;     // hash of the ledger state
 
@@ -112,7 +112,7 @@ struct LedgerHeader
 };
 
 /* Ledger upgrades
-note that the `upgrades` field from StellarValue is normalized such that
+note that the `upgrades` field from DiamnetValue is normalized such that
 it only contains one entry per LedgerUpgradeType, and entries are sorted
 in ascending order
 */
@@ -469,7 +469,7 @@ struct TransactionMetaV3
                                          // Soroban transactions).
 };
 
-// This is in Stellar-ledger.x to due to a circular dependency 
+// This is in Diamnet-ledger.x to due to a circular dependency 
 struct InvokeHostFunctionSuccessPreImage
 {
     SCVal returnValue;

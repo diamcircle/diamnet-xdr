@@ -1,12 +1,12 @@
-// Copyright 2015 Stellar Development Foundation and contributors. Licensed
+// Copyright 2015 Diamnet Development Foundation and contributors. Licensed
 // under the Apache License, Version 2.0. See the COPYING file at the root
 // of this distribution or at http://www.apache.org/licenses/LICENSE-2.0
 
-%#include "xdr/Stellar-types.h"
-%#include "xdr/Stellar-contract.h"
-%#include "xdr/Stellar-contract-config-setting.h"
+%#include "xdr/Diamnet-types.h"
+%#include "xdr/Diamnet-contract.h"
+%#include "xdr/Diamnet-contract-config-setting.h"
 
-namespace stellar
+namespace diamnet
 {
 
 typedef opaque Thresholds[4];
@@ -182,7 +182,7 @@ struct AccountEntryExtensionV1
 
 /* AccountEntry
 
-    Main entry representing a user in Stellar. All transactions are
+    Main entry representing a user in Diamnet. All transactions are
     performed using an account.
 
     Other ledger entries created require an account.

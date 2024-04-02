@@ -1,3 +1,3 @@
-# stellar-xdr
+# diamnet-xdr
 
-XDR for the Stellar Network.
+XDR for the Diamnet Network.

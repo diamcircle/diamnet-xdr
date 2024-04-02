@@ -1,10 +1,10 @@
-// Copyright 2015 Stellar Development Foundation and contributors. Licensed
+// Copyright 2015 Diamnet Development Foundation and contributors. Licensed
 // under the Apache License, Version 2.0. See the COPYING file at the root
 // of this distribution or at http://www.apache.org/licenses/LICENSE-2.0
 
-%#include "xdr/Stellar-ledger.h"
+%#include "xdr/Diamnet-ledger.h"
 
-namespace stellar
+namespace diamnet
 {
 
 enum ErrorCode
@@ -238,7 +238,7 @@ struct FloodDemand
     TxDemandVector txHashes;
 };
 
-union StellarMessage switch (MessageType type)
+union DiamnetMessage switch (MessageType type)
 {
 case ERROR_MSG:
     Error error;
@@ -295,7 +295,7 @@ case 0:
     struct
     {
         uint64 sequence;
-        StellarMessage message;
+        DiamnetMessage message;
         HmacSha256Mac mac;
     } v0;
 };
